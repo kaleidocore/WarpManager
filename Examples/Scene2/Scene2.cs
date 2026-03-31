@@ -15,7 +15,7 @@ public partial class Scene2 : Node2D
 
 		BackButton.Pressed += () =>
 		{
-			WarpManager.Instance.WarpToPacked(MainScene, ColorFade.Cover(.5f), ColorFade.Uncover(.5f));
+			WarpManager.Instance.WarpToPacked(MainScene, ColorFade.Cover(.3f), ColorFade.Uncover(.3f));
 		};
 	}
 
