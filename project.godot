@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-KaleidoWarp="*uid://8ng1n1k5k2jo"
+WarpManager="*uid://olqbotb4ollr"
 
 [display]
 
@@ -36,7 +36,7 @@ project/solution_directory="."
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/kaleido_warp/plugin.cfg")
 
 [physics]
 

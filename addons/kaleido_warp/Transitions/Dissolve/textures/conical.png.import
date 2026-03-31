@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl2mfa1bj3mjf"
-path="res://.godot/imported/scribbles.png-821db5ef9511268107efcb6494beaaae.ctex"
+uid="uid://ryd3jymcn1oc"
+path="res://.godot/imported/conical.png-678f2e284fae2c1489f4612c2d07247c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/KaleidoWarp/Transitions/Dissolve/textures/scribbles.png"
-dest_files=["res://.godot/imported/scribbles.png-821db5ef9511268107efcb6494beaaae.ctex"]
+source_file="res://addons/kaleido_warp/Transitions/Dissolve/textures/conical.png"
+dest_files=["res://.godot/imported/conical.png-678f2e284fae2c1489f4612c2d07247c.ctex"]
 
 [params]
 

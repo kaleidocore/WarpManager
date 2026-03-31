@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rcqjssobofv7"
-path="res://.godot/imported/squares.png-3e9bf975c411b2af2f3bbc3681515546.ctex"
+uid="uid://bwmlsc56n2qjr"
+path="res://.godot/imported/curtains.png-8bdae24fa13cfd54c99f5bb39fa22812.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/KaleidoWarp/Transitions/Dissolve/textures/squares.png"
-dest_files=["res://.godot/imported/squares.png-3e9bf975c411b2af2f3bbc3681515546.ctex"]
+source_file="res://addons/kaleido_warp/Transitions/Dissolve/textures/curtains.png"
+dest_files=["res://.godot/imported/curtains.png-8bdae24fa13cfd54c99f5bb39fa22812.ctex"]
 
 [params]
 

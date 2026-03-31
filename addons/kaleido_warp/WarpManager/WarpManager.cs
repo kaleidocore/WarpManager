@@ -11,7 +11,7 @@ public partial class WarpManager : CanvasLayer
 	static WarpManager? _instance;
 
 	/// <summary>
-	/// The singleton instance of the WarpManager. This property provides easy access to the WarpManager instance, which must be set as an autoload in the project settings.
+	/// The singleton instance of the <see cref="WarpManager"/>. This property provides easy access to the global transition manager, which must be set as an autoload in the project settings.
 	/// </summary>
 	public static WarpManager Instance => _instance ?? throw new InvalidOperationException($"{nameof(WarpManager)} instance not set. Ensure {nameof(WarpManager)} is added as an autoload in the project settings.");
 

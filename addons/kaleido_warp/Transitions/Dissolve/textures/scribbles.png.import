@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc1btvk5df8lj"
-path="res://.godot/imported/swirl.png-c6fdf79d4258adf0fc75ba5a79bb4ff0.ctex"
+uid="uid://cl2mfa1bj3mjf"
+path="res://.godot/imported/scribbles.png-fc2356c8f61f46ae226c7fb628483767.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/KaleidoWarp/Transitions/Dissolve/textures/swirl.png"
-dest_files=["res://.godot/imported/swirl.png-c6fdf79d4258adf0fc75ba5a79bb4ff0.ctex"]
+source_file="res://addons/kaleido_warp/Transitions/Dissolve/textures/scribbles.png"
+dest_files=["res://.godot/imported/scribbles.png-fc2356c8f61f46ae226c7fb628483767.ctex"]
 
 [params]
 

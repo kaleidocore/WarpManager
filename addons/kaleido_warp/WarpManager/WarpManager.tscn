@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://8ng1n1k5k2jo" path="res://Autoloads/WarpManager/WarpManager.cs" id="1_kqg5i"]
 
-[node name="WarpManager" type="Node2D" unique_id=1838711624]
+[node name="WarpManager" type="CanvasLayer" unique_id=1838711624]
 script = ExtResource("1_kqg5i")
