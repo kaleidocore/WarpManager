@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="KaleidoWarp"
+config/version="1.0a"
+run/main_scene="uid://fg161ybw2vio"
+config/use_custom_user_dir=true
+config/features=PackedStringArray("4.6", "C#", "Mobile")
+boot_splash/bg_color=Color(0.06087495, 0.06087495, 0.06087495, 1)
+config/icon="res://icon.svg"
+
+[autoload]
+
+KaleidoWarp="*uid://8ng1n1k5k2jo"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="KaleidoWarp"
+project/solution_directory="."
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"

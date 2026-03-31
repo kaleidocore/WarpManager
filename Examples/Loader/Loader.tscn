@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://c2qmj2injevky"]
+
+[ext_resource type="Script" uid="uid://d3y5j3laewqs1" path="res://Scenes/Loader/Loader.cs" id="1_qur2c"]
+
+[sub_resource type="Animation" id="Animation_qur2c"]
+resource_name = "Enter"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Banner:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(660, -400), Vector2(660, 500), Vector2(660, 400)]
+}
+
+[sub_resource type="Animation" id="Animation_fo841"]
+resource_name = "Exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Banner:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 0.5),
+"update": 0,
+"values": [Vector2(660, 400), Vector2(660, 300), Vector2(660, 1100)]
+}
+
+[sub_resource type="Animation" id="Animation_u181p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Banner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(660, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_56rly"]
+_data = {
+&"Enter": SubResource("Animation_qur2c"),
+&"Exit": SubResource("Animation_fo841"),
+&"RESET": SubResource("Animation_u181p")
+}
+
+[node name="Loader" type="CanvasLayer" unique_id=1242485050]
+script = ExtResource("1_qur2c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=784592247]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Banner" type="ColorRect" parent="." unique_id=1174434333]
+unique_name_in_owner = true
+offset_left = 660.0
+offset_top = -400.0
+offset_right = 1259.9998
+offset_bottom = -50.0
+pivot_offset = Vector2(300, 0)
+color = Color(1, 1, 1, 0.09803922)
+
+[node name="Label" type="Label" parent="Banner" unique_id=1916336717]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 10.999992
+offset_right = 580.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Banner" unique_id=1184082873]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 32.999985
+offset_top = 224.0
+offset_right = 573.0
+offset_bottom = 297.0
+theme_override_font_sizes/font_size = 50
+value = 50.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2067931612]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_56rly")

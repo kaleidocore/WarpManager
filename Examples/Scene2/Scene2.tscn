@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bfhyowld504aq"]
+
+[ext_resource type="Script" uid="uid://yjusrw21k00l" path="res://Scenes/Scene2/Scene2.cs" id="1_1oi4v"]
+
+[node name="Scene2" type="Node2D" unique_id=720882399]
+script = ExtResource("1_1oi4v")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=786521250]
+unique_name_in_owner = true
+offset_left = 326.0
+offset_top = 103.0
+offset_right = 1539.0
+offset_bottom = 512.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 300
+text = "Scene2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="." unique_id=897951225]
+unique_name_in_owner = true
+offset_left = 389.0
+offset_top = 478.0
+offset_right = 1411.0
+offset_bottom = 627.13806
+theme_override_colors/font_color = Color(0.035346244, 0.035346244, 0.03534624, 1)
+theme_override_font_sizes/font_size = 100
+text = "Time
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=231312685]
+unique_name_in_owner = true
+offset_left = 716.0
+offset_top = 807.0
+offset_right = 1109.1809
+offset_bottom = 911.0
+theme_override_font_sizes/font_size = 70
+text = "Back
+"

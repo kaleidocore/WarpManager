@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ddk1uvj1b203r"]
+
+[ext_resource type="PackedScene" uid="uid://b134caryb0sib" path="res://Autoloads/WarpManager/Transitions/Transition.tscn" id="1_7pvfg"]
+[ext_resource type="Script" uid="uid://cqo5qkkvxbodp" path="res://Autoloads/WarpManager/Transitions/Voronoi/Voronoi.cs" id="2_wa3j8"]
+
+[node name="Voronoi" unique_id=81335194 instance=ExtResource("1_7pvfg")]
+script = ExtResource("2_wa3j8")

@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://fg161ybw2vio"]
+
+[ext_resource type="Script" uid="uid://boa6oq0tojsha" path="res://Examples/Scene1/Scene1.cs" id="1_ok3yg"]
+[ext_resource type="Texture2D" uid="uid://c4fonxi2sxc4n" path="res://icon.svg" id="2_6nhwj"]
+
+[node name="Scene1" type="Node2D" unique_id=365395555]
+script = ExtResource("1_ok3yg")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=2044633497]
+unique_name_in_owner = true
+offset_left = 327.0
+offset_top = 14.0
+offset_right = 1540.0
+offset_bottom = 423.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "Scene1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="." unique_id=279948095]
+unique_name_in_owner = true
+offset_left = 380.0
+offset_top = 368.0
+offset_right = 1402.0
+offset_bottom = 517.13806
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+text = "Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2097663328]
+
+[node name="FadeButton" type="Button" parent="UI" unique_id=849855513]
+unique_name_in_owner = true
+offset_left = 663.0
+offset_top = 557.0
+offset_right = 1093.0
+offset_bottom = 634.0
+theme_override_font_sizes/font_size = 50
+text = "Fade"
+
+[node name="DissolveButton" type="Button" parent="UI" unique_id=692852608]
+unique_name_in_owner = true
+offset_left = 661.0
+offset_top = 644.0
+offset_right = 1091.0
+offset_bottom = 721.0
+theme_override_font_sizes/font_size = 50
+text = "Dissolve
+"
+
+[node name="VoronoiButton" type="Button" parent="UI" unique_id=1676621940]
+unique_name_in_owner = true
+offset_left = 659.0
+offset_top = 734.0
+offset_right = 1089.0
+offset_bottom = 811.0
+theme_override_font_sizes/font_size = 50
+text = "Voronoi
+
+"
+
+[node name="SuperMarioButton" type="Button" parent="UI" unique_id=1952122545]
+unique_name_in_owner = true
+offset_left = 658.0
+offset_top = 819.0
+offset_right = 1088.0
+offset_bottom = 896.0
+theme_override_font_sizes/font_size = 50
+text = "SuperMario
+
+"
+
+[node name="LoaderButton" type="Button" parent="UI" unique_id=689130947]
+unique_name_in_owner = true
+offset_left = 657.0
+offset_top = 950.0
+offset_right = 1087.0
+offset_bottom = 1027.0
+theme_override_font_sizes/font_size = 50
+text = "Loader...
+
+
+"
+
+[node name="UseImage" type="CheckButton" parent="UI" unique_id=1728388119]
+unique_name_in_owner = true
+offset_left = 1437.0
+offset_top = 768.84314
+offset_right = 1533.0
+offset_bottom = 799.84314
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Image"
+
+[node name="OverlayImage" type="Sprite2D" parent="UI" unique_id=1792539118]
+unique_name_in_owner = true
+position = Vector2(1568.9999, 687.84314)
+scale = Vector2(1.3764896, 1.1069243)
+texture = ExtResource("2_6nhwj")
+
+[node name="ColorPicker" type="ColorPickerButton" parent="UI" unique_id=1575690471]
+unique_name_in_owner = true
+offset_left = 1267.0
+offset_top = 623.84314
+offset_right = 1404.0
+offset_bottom = 760.84314
+theme_override_font_sizes/font_size = 50
+text = "Color"

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://mpr42mkm61qg"]
+
+[ext_resource type="PackedScene" uid="uid://b134caryb0sib" path="res://Autoloads/WarpManager/Transitions/Transition.tscn" id="1_ynf26"]
+[ext_resource type="Script" uid="uid://dfjhj82mkrf6v" path="res://Autoloads/WarpManager/Transitions/Dissolve/Dissolve.cs" id="2_qyb8l"]
+
+[node name="Dissolve" unique_id=81335194 instance=ExtResource("1_ynf26")]
+script = ExtResource("2_qyb8l")
