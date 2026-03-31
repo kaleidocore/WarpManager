@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcko0aow35efq"]
 
-[ext_resource type="PackedScene" uid="uid://b134caryb0sib" path="res://Autoloads/WarpManager/Transitions/Transition.tscn" id="1_i84wu"]
-[ext_resource type="Script" uid="uid://tcv5clupw38k" path="res://Autoloads/WarpManager/Transitions/ColorFade/ColorFade.cs" id="2_uu666"]
+[ext_resource type="PackedScene" uid="uid://b134caryb0sib" path="res://addons/kaleido_warp/Transitions/Transition/Transition.tscn" id="1_i84wu"]
+[ext_resource type="Script" uid="uid://tcv5clupw38k" path="res://addons/kaleido_warp/Transitions/ColorFade/ColorFade.cs" id="2_uu666"]
 
 [node name="ColorFade" unique_id=81335194 instance=ExtResource("1_i84wu")]
 script = ExtResource("2_uu666")

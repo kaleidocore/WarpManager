@@ -32,7 +32,7 @@ public static class TransitionExtensions
 	public static T Image<T>(this T transition, Texture2D image)
 		where T : Transition
 	{
-		transition.Texture = image;
+		transition.ImageTexture = image;
 		return transition;
 	}
 

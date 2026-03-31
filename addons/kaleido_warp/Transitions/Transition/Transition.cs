@@ -19,7 +19,7 @@ public abstract partial class Transition : ColorRect
 	{
 		var image = Godot.Image.CreateEmpty(1, 1, false, Godot.Image.Format.Rgba8);
 		image.Fill(Colors.Transparent);
-		return ImageTexture.CreateFromImage(image);
+		return Godot.ImageTexture.CreateFromImage(image);
 	}
 
 	/// <summary>
@@ -56,7 +56,7 @@ public abstract partial class Transition : ColorRect
 	/// Gets or sets the base texture of the transition.
 	/// </summary>
 	[Export]
-	public Texture2D? Texture { get; set; }
+	public Texture2D? ImageTexture { get; set; }
 
 	/// <summary>
 	/// The path of the directory containing the transition script, used for loading related resources such as shaders or textures. This is automatically set in the _Ready method based on the script's resource path.
@@ -68,17 +68,12 @@ public abstract partial class Transition : ColorRect
 	/// </summary>
 	public virtual bool IsFinished => _tween?.IsRunning() == false;
 
-	public Transition()
-	{
-		// Ensure the node processes even when invisible
-		ProcessMode = ProcessModeEnum.Always;
-		Color = Colors.Black;
-	}
-
 	public override void _Ready()
 	{
 		base._Ready();
 
+		ProcessMode = ProcessModeEnum.Always;
+		Color = Colors.Black;
 		Size = GetViewportRect().Size;
 		SetAnchorsPreset(LayoutPreset.FullRect);
 		Visible = false;

@@ -3,5 +3,7 @@
 [ext_resource type="Script" uid="uid://8ng1n1k5k2jo" path="res://addons/kaleido_warp/WarpManager/WarpManager.cs" id="1_kqg5i"]
 
 [node name="WarpManager" type="CanvasLayer" unique_id=1838711624]
+process_mode = 3
+editor_description = "The KaleidoWarp transition manager. Must be autoloaded."
 layer = 1000
 script = ExtResource("1_kqg5i")

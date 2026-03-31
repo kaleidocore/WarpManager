@@ -24,7 +24,7 @@ public partial class SuperMario : Transition
 		base._Process(delta);
 		var material = (ShaderMaterial)Material;
 		material.SetShaderParameter("progress", Reverse ? 1f - Progress : Progress);
-		material.SetShaderParameter("image", Texture ?? TransparentPixel);
+		material.SetShaderParameter("image", ImageTexture ?? TransparentPixel);
 		material.SetShaderParameter("speed", Speed);
 	}
 

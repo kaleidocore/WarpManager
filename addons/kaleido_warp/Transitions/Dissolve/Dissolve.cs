@@ -67,7 +67,7 @@ public partial class Dissolve : Transition
 		base._Process(delta);
 		var material = (ShaderMaterial)Material;
 
-		material.SetShaderParameter("image", Texture ?? TransparentPixel);
+		material.SetShaderParameter("image", ImageTexture ?? TransparentPixel);
 
 		if (DissolveTexture != null)
 			material.SetShaderParameter("dissolve_texture", DissolveTexture);
