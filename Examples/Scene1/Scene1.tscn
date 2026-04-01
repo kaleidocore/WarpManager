@@ -73,14 +73,14 @@ text = "Voronoi
 
 "
 
-[node name="SuperMarioButton" type="Button" parent="UI" unique_id=1952122545]
+[node name="PixellateButton" type="Button" parent="UI" unique_id=1952122545]
 unique_name_in_owner = true
 offset_left = 142.0
 offset_top = 702.0
 offset_right = 572.0
 offset_bottom = 779.0
 theme_override_font_sizes/font_size = 50
-text = "SuperMario
+text = "Pixellate
 
 "
 

@@ -196,4 +196,33 @@ public static class TransitionExtensions
 		voronoi.Angle = angle;
 		return voronoi;
 	}
+
+	/// <summary>
+	/// Sets the amount (ratio) of pixelation to apply to the specified transition.
+	/// </summary>
+	/// <typeparam name="T">The type of the transition, which must inherit from Pixellate.</typeparam>
+	/// <param name="transition">The transition instance to configure. Must not be null.</param>
+	/// <param name="amount">The amount of pixelation to apply. Higher values result in more pronounced pixelation.</param>
+	/// <returns>The transition instance with the updated pixelation amount.</returns>
+	public static T Amount<T>(this T transition, float amount)
+		where T : Pixellate
+	{
+		transition.Amount = amount;
+		return transition;
+	}
+
+	/// <summary>
+	/// Sets the origin point for the pixellation effect, which determines the center point from which the pixelation will radiate or be applied in the transition animation.
+	/// </summary>
+	/// <typeparam name="T">The type of the transition, which must inherit from Pixellate.</typeparam>
+	/// <param name="transition">The transition instance to configure. Must not be null.</param>
+	/// <param name="origin">The origin point for the pixellation effect, specified as a normalized vector where (0, 0) represents the top-left corner and (1, 1) represents the bottom-right corner.</param>
+	/// <returns>The transition instance with the updated origin point.</returns>
+	public static T Origin<T>(this T transition, Vector2 origin)
+		where T : Pixellate
+	{
+		transition.Origin = origin;
+		return transition;
+	}
+
 }
