@@ -24,7 +24,7 @@ WarpManager.Instance.WarpToFile(
 
 ## WarpManager API
 
-The primary API mirrors Godot's default scene navigation while adding optional transitions:
+The primary API of `WarpManager` mirrors Godot's default scene navigation while adding optional transitions:
 ```csharp
 public void WarpToFile(string scenePath, Transition? transitionOut, Transition? transitionIn)
 public void WarpToPacked(PackedScene packedScene, Transition? transitionOut, Transition? transitionIn)
@@ -43,9 +43,9 @@ The addon comes with 4 built-in, shader based transition types, each individuall
 | `ColorFade` | Fades the screen to an opaque overlay |
 | `Voronoi` | A randomized bubbly pattern that sweeps across the screen at a given angle |
 | `Pixellation` | A pixellating effect reminiscent of the classic Super Mario pixel fade |
-| `Dissolve` | Uses a monochrome pattern texture to define when and where each screen pixel is overlaid and blended |
+| `Dissolve` | Uses a grayscale pattern texture to define when and where each screen pixel is overlaid and blended |
 
-Should these somehow not cover your needs you are free to implement your own custom transition inherited from `Transition`, which handles most the groundwork. And don't forget to share!
+Should these somehow not cover your needs you are free to implement your own custom transitions inherited from `Transition` (`Transition.tscn`), which handles most of the groundwork. And don't forget to share them here!
 
 ---
 
