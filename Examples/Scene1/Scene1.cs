@@ -13,7 +13,7 @@ public partial class Scene1 : Node2D
 
 	float _timer;
 	Label TimeLabel => GetNode<Label>("%TimeLabel");
-	Button FadeButton => GetNode<Button>("%FadeButton");
+	Button ColorFadeButton => GetNode<Button>("%ColorFadeButton");
 	Button DissolveButton => GetNode<Button>("%DissolveButton");
 	OptionButton DissolveOptionButton => GetNode<OptionButton>("%DissolveOptionButton");
 	Button VoronoiButton => GetNode<Button>("%VoronoiButton");
@@ -40,7 +40,7 @@ public partial class Scene1 : Node2D
 		DissolveOptionButton.ItemSelected += index => DissolvePatternIndex = (int)index;
 
 		// Transition with (mostly) default settings
-		FadeButton.Pressed += () => WarpManager.Instance.WarpToPacked(TargetScene, ColorFade.Cover().Color(OverlayColor).Image(OverlayImage), ColorFade.Uncover().Color(OverlayColor).Image(OverlayImage));
+		ColorFadeButton.Pressed += () => WarpManager.Instance.WarpToPacked(TargetScene, ColorFade.Cover().Color(OverlayColor).Image(OverlayImage), ColorFade.Uncover().Color(OverlayColor).Image(OverlayImage));
 		VoronoiButton.Pressed += () => WarpManager.Instance.WarpToPacked(TargetScene, Voronoi.Cover().Color(OverlayColor).Image(OverlayImage), Voronoi.Uncover().Color(OverlayColor).Image(OverlayImage));
 		SuperMarioButton.Pressed += () => WarpManager.Instance.WarpToPacked(TargetScene, SuperMario.Cover().Color(OverlayColor).Image(OverlayImage), SuperMario.Uncover().Color(OverlayColor).Image(OverlayImage));
 		DissolveButton.Pressed += () => WarpManager.Instance.WarpToPacked(TargetScene, Dissolve.Cover().Color(OverlayColor).Image(OverlayImage).Pattern(SelectedDissolveTexture), Dissolve.Uncover().Color(OverlayColor).Image(OverlayImage).Pattern(SelectedDissolveTexture));
