@@ -81,7 +81,7 @@ public static T Uncover(float duration);
 The factories are primarily for convencience and the main difference betweem `Cover()` and `Uncover()` is that the latter sets the transition up to play in reverse.
 You can mix and match transition styles for outro/intro however you like - as long as both of them have the same color and image they should overlap seamlessly.
 
-## Transition API
+## Transition common base API
 
 All transitions inherit from the abstract base class `Transition` and expose a fluent configuration API:
 ```csharp
