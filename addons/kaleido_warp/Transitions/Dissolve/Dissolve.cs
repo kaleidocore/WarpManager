@@ -10,7 +10,7 @@ namespace KaleidoWarp;
 /// transitions for covering or uncovering the screen, respectively. The transition duration, easing, and other shader effects
 /// can be further customized via chained calls to achieve various visual styles.
 /// </remarks>
-public partial class Dissolve : Transition
+public partial class Dissolve : Transition, ITransitionFactory<Dissolve>
 {
 	const string ShaderPath = "dissolve.gdshader";
 
@@ -91,7 +91,7 @@ public partial class Dissolve : Transition
 		{
 			Duration = duration,
 			Reverse = false,
-			TransitionType = Tween.TransitionType.Linear,
+			Curve = Tween.TransitionType.Linear,
 		};
 	}
 
@@ -107,7 +107,7 @@ public partial class Dissolve : Transition
 			Duration = duration,
 			Invert = true,
 			Reverse = true,
-			TransitionType = Tween.TransitionType.Linear,
+			Curve = Tween.TransitionType.Linear,
 		};
 	}
 

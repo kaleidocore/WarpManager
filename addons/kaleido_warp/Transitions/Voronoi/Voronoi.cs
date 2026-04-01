@@ -9,7 +9,7 @@ namespace KaleidoWarp;
 /// transitions for covering or uncovering the screen, respectively. The transition duration, easing, and other shader effects
 /// can be further customized via chained calls to achieve various visual styles.
 /// </remarks>
-public partial class Voronoi : Transition
+public partial class Voronoi : Transition, ITransitionFactory<Voronoi>
 {
 	const string ShaderPath = "voronoi.gdshader";
 
@@ -51,7 +51,7 @@ public partial class Voronoi : Transition
 		{
 			Duration = duration,
 			Reverse = false,
-			TransitionType = Tween.TransitionType.Sine,
+			Curve = Tween.TransitionType.Sine,
 		};
 	}
 
@@ -66,7 +66,7 @@ public partial class Voronoi : Transition
 		{
 			Duration = duration,
 			Reverse = true,
-			TransitionType = Tween.TransitionType.Sine,
+			Curve = Tween.TransitionType.Sine,
 			Angle = 180,
 		};
 	}

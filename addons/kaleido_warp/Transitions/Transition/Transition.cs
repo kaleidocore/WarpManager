@@ -58,7 +58,7 @@ public abstract partial class Transition : ColorRect
 	/// Gets or sets the type of transition used for the tweening animation.
 	/// </summary>
 	[Export]
-	public Tween.TransitionType TransitionType { get; set; } = Tween.TransitionType.Linear;
+	public Tween.TransitionType Curve { get; set; } = Tween.TransitionType.Linear;
 
 	/// <summary>
 	/// Gets or sets the base texture of the transition.
@@ -123,7 +123,7 @@ public abstract partial class Transition : ColorRect
 		_tween = CreateTween();
 		var pt = _tween.TweenProperty(this, nameof(Progress), 1f, Duration);
 		pt.SetEase(Ease);
-		pt.SetTrans(TransitionType);
+		pt.SetTrans(Curve);
 	}
 
 	/// <summary>

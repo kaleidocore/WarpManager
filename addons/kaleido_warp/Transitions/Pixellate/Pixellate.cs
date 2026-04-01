@@ -1,7 +1,7 @@
 using Godot;
 namespace KaleidoWarp;
 
-public partial class Pixellate : Transition
+public partial class Pixellate : Transition, ITransitionFactory<Pixellate>
 {
 	const string ShaderPath = "pixellate.gdshader";
 
@@ -9,7 +9,7 @@ public partial class Pixellate : Transition
 	/// The amount (ratio) of pixelation to apply during the transition. Higher values will result in larger, more pronounced pixels, while lower values will create a finer pixelation effect.
 	/// </summary>
 	[Export]
-	public float Amount { get; set; } = 300f;
+	public float Amount { get; set; } = 100f;
 
 	/// <summary>
 	/// The origin point for the pixelation effect, specified as a normalized vector where (0, 0) represents the top-left corner of the screen and (1, 1) represents the bottom-right corner.

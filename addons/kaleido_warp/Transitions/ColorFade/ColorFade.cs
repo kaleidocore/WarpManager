@@ -9,7 +9,7 @@ namespace KaleidoWarp;
 /// transitions for covering or uncovering the screen, respectively. The transition duration, easing, and other shader effects
 /// can be further customized via chained calls to achieve various visual styles.
 /// </remarks>
-public partial class ColorFade : Transition
+public partial class ColorFade : Transition, ITransitionFactory<ColorFade>
 {
 	const string ShaderPath = "color_fade.gdshader";
 
@@ -46,7 +46,7 @@ public partial class ColorFade : Transition
 			Duration = duration,
 			Reverse = false,
 			Ease = Tween.EaseType.InOut,
-			TransitionType = Tween.TransitionType.Quad,
+			Curve = Tween.TransitionType.Quad,
 		};
 	}
 
@@ -61,7 +61,7 @@ public partial class ColorFade : Transition
 		{
 			Duration = duration,
 			Reverse = true,
-			TransitionType = Tween.TransitionType.Quad,
+			Curve = Tween.TransitionType.Quad,
 		};
 	}
 }

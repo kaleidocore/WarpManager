@@ -90,16 +90,16 @@ public static class TransitionExtensions
 	}
 
 	/// <summary>
-	/// Sets the transition type for the specified transition instance and returns the updated instance.
+	/// Sets the curve type for the specified transition instance and returns the updated instance.
 	/// </summary>
 	/// <typeparam name="T">The type of the transition. Must inherit from the Transition class.</typeparam>
 	/// <param name="transition">The transition instance to update. Cannot be null.</param>
 	/// <param name="transitionType">The transition type to assign to the specified transition instance.</param>
 	/// <returns>The updated transition instance with the specified transition type applied.</returns>
-	public static T TransType<T>(this T transition, Tween.TransitionType transitionType)
+	public static T Curve<T>(this T transition, Tween.TransitionType curve)
 		where T : Transition
 	{
-		transition.TransitionType = transitionType;
+		transition.Curve = curve;
 		return transition;
 	}
 
@@ -129,6 +129,16 @@ public static class TransitionExtensions
 		where T : Dissolve
 		=> Pattern(dissolve, _ => pattern);
 
+	/// <summary>
+	/// Sets a custom texture for the dissolve effect, allowing for a specific pattern to be used in the dissolve animation.
+	/// </summary>
+	/// <typeparam name="T">The type of the dissolve instance. Must inherit from the Dissolve class.</typeparam>
+	/// <param name="dissolve">The dissolve instance to configure with the custom texture.</param>
+	/// <param name="patternPath">The path to the custom texture to use for the dissolve effect.</param>
+	/// <returns>The modified dissolve instance with the custom texture applied.</returns>
+	public static T Pattern<T>(this T dissolve, string patternPath)
+		where T : Dissolve
+		=> Pattern(dissolve, _ => GD.Load<Texture2D>(patternPath));
 
 	/// <summary>
 	/// Inverts the dissolve pattern texture, effectively reversing the visual effect of the dissolve animation.
@@ -138,26 +148,49 @@ public static class TransitionExtensions
 	/// <returns>The modified dissolve instance with the inverted pattern applied.</returns>
 	public static T Invert<T>(this T dissolve)
 		where T : Dissolve
+		=> Invert(dissolve, !dissolve.Invert);
+
+	/// <summary>
+	/// Inverts the dissolve pattern texture, effectively reversing the visual effect of the dissolve animation.
+	/// </summary>
+	/// <typeparam name="T">The type of the dissolve instance. Must inherit from the Dissolve class.</typeparam>
+	/// <param name="dissolve">The dissolve instance to invert.</param>
+	/// <param name="invert">A boolean value indicating whether to invert the dissolve pattern. If true, the pattern will be inverted; if false, it will remain unchanged.</param>
+	/// <returns>The modified dissolve instance with the inverted pattern applied.</returns>
+	public static T Invert<T>(this T dissolve, bool invert)
+		where T : Dissolve
 	{
-		dissolve.Invert = !dissolve.Invert;
+		dissolve.Invert = invert;
 		return dissolve;
 	}
 
 	/// <summary>
-	/// Flips the dissolve pattern horizontally, creating a mirrored effect along the vertical axis of the dissolve animation.
+	/// Toggles the horizontal flip of the dissolve pattern, creating a mirrored effect along the vertical axis of the dissolve animation.
 	/// </summary>
 	/// <typeparam name="T">The type of the dissolve instance. Must inherit from the Dissolve class.</typeparam>
 	/// <param name="dissolve">The dissolve instance to flip horizontally.</param>
 	/// <returns>The modified dissolve instance with the horizontal flip applied.</returns>
 	public static T FlipX<T>(this T dissolve)
 		where T : Dissolve
+		=> FlipX(dissolve, !dissolve.FlipX);
+
+
+	/// <summary>
+	/// Sets the horizontal flip of the dissolve pattern, creating a mirrored effect along the vertical axis of the dissolve animation.
+	/// </summary>
+	/// <typeparam name="T">The type of the dissolve instance. Must inherit from the Dissolve class.</typeparam>
+	/// <param name="dissolve">The dissolve instance to flip horizontally.</param>
+	/// <param name="flipX">A boolean value indicating whether to flip the dissolve pattern horizontally. If true, the pattern will be flipped; if false, it will remain unchanged.</param>
+	/// <returns>The modified dissolve instance with the horizontal flip applied.</returns>
+	public static T FlipX<T>(this T dissolve, bool flipX)
+		where T : Dissolve
 	{
-		dissolve.FlipX = !dissolve.FlipX;
+		dissolve.FlipX = flipX;
 		return dissolve;
 	}
 
 	/// <summary>
-	/// Flips the dissolve pattern vertically, creating a mirrored effect along the horizontal axis of the dissolve animation.
+	/// Toggles the vertical flip of the dissolve pattern, creating a mirrored effect along the horizontal axis of the dissolve animation.
 	/// </summary>
 	/// <typeparam name="T">The type of the dissolve instance. Must inherit from the Dissolve class.</typeparam>
 	/// <param name="dissolve">The dissolve instance to flip vertically.</param>
@@ -166,6 +199,20 @@ public static class TransitionExtensions
 		where T : Dissolve
 	{
 		dissolve.FlipY = !dissolve.FlipY;
+		return dissolve;
+	}
+
+	/// <summary>
+	/// Sets the vertical flip of the dissolve pattern, creating a mirrored effect along the horizontal axis of the dissolve animation.
+	/// </summary>
+	/// <typeparam name="T">The type of the dissolve instance. Must inherit from the Dissolve class.</typeparam>
+	/// <param name="dissolve">The dissolve instance to flip vertically.</param>
+	/// <param name="flipY">A boolean value indicating whether to flip the dissolve pattern vertically. If true, the pattern will be flipped; if false, it will remain unchanged.</param>
+	/// <returns>The modified dissolve instance with the vertical flip applied.</returns>
+	public static T FlipY<T>(this T dissolve, bool flipY)
+		where T : Dissolve
+	{
+		dissolve.FlipY = flipY;
 		return dissolve;
 	}
 
