@@ -70,7 +70,7 @@ Should these somehow not cover your needs you are free to implement your own cus
 
 ## Configuring Transitions 🎭
 
-All transition implement the following two static factory methods:
+All transitions implement the following two static factory methods:
 
 ```csharp
 // Gradually covers the screen — scene exit/outro
