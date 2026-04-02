@@ -191,4 +191,4 @@ Dissolve.Uncover(2f).Color(Colors.Red).Pattern("res://dissolve2.png");
 ```
 
 ## Custom loaders
-For smooth loading of heavy scenes you may want to create a custom loader. However, under this framework loader scenes are nothing special - just transition (warp) to your loader scene normally, load your target scene however you want and transition (warp) to it when ready.
+For smooth loading of heavy scenes you may want to create a custom loader. However, under this framework loader scenes are nothing special; just transition (warp) to your loader scene normally, load your target scene however you want and finally transition (warp) to it when ready. The example project demonstrates this pattern.
