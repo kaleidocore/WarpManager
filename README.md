@@ -73,14 +73,14 @@ Should these somehow not cover your needs you are free to implement your own cus
 All transitions implement the following two static factory methods:
 
 ```csharp
-// Gradually covers the screen — scene exit/outro
+// Gradually covers the screen, i.e. scene exit/outro
 public static T Cover(float duration);
 
-// Gradually uncovers the screen — scene entry/intro
+// Gradually uncovers the screen, i.e. scene entry/intro
 public static T Uncover(float duration);
 ```
 
-The factories are primarily for convencience and the main difference betweem `Cover()` and `Uncover()` is that the latter sets the transition up to play in reverse.
+The factories are primarily for convencience and the main difference between `Cover()` and `Uncover()` is that the latter initializes the transition to play in reverse.
 You can mix and match transition styles for outro/intro however you like - as long as both of them have the same color and image they should overlap seamlessly.
 
 ## Transition common base API
