@@ -1,6 +1,6 @@
 # 🎬 KaleidoWarp for Godot
 
-A flexible and extensible scene transition addon for Godot (.NET/C#) that allows for smooth, animated transitions between scenes.
+This is a flexible and extensible scene transition addon for Godot (.NET/C#) that allows for smooth, animated transitions between scenes.
 
 ## Installation 📦
 You have three options:
