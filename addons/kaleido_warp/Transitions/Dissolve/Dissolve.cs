@@ -53,13 +53,7 @@ public partial class Dissolve : Transition, ITransitionFactory<Dissolve>
 	public override void _Ready()
 	{
 		base._Ready();
-
-		var shader = LoadLocal<Shader>(ShaderPath);
-		Material = new ShaderMaterial
-		{
-			Shader = shader
-		};
-
+		LoadShader(ShaderPath);
 		DissolveTexture ??= DissolveTextureSelector(new DissolvePatterns(BasePath));
 	}
 

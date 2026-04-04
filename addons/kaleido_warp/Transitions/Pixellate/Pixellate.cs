@@ -1,5 +1,6 @@
 using Godot;
 namespace KaleidoWarp;
+#nullable enable
 
 public partial class Pixellate : Transition, ITransitionFactory<Pixellate>
 {
@@ -20,12 +21,7 @@ public partial class Pixellate : Transition, ITransitionFactory<Pixellate>
 	public override void _Ready()
 	{
 		base._Ready();
-
-		var shader = LoadLocal<Shader>(ShaderPath);
-		Material = new ShaderMaterial
-		{
-			Shader = shader
-		};
+		LoadShader(ShaderPath);
 	}
 
 	public override void _Process(double delta)

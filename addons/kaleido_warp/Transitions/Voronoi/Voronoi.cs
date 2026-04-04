@@ -1,6 +1,7 @@
 using Godot;
 
 namespace KaleidoWarp;
+#nullable enable
 
 /// <summary>
 /// Represents a transition effect that gradually covers or uncovers the screen using a Voronoi pattern.
@@ -22,12 +23,7 @@ public partial class Voronoi : Transition, ITransitionFactory<Voronoi>
 	public override void _Ready()
 	{
 		base._Ready();
-
-		var shader = LoadLocal<Shader>(ShaderPath);
-		Material = new ShaderMaterial
-		{
-			Shader = shader
-		};
+		LoadShader(ShaderPath);
 	}
 
 	public override void _Process(double delta)

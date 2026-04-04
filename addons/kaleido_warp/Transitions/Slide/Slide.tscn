@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://62eil2i7nyrc"]
+
+[ext_resource type="PackedScene" uid="uid://b134caryb0sib" path="res://addons/kaleido_warp/Transitions/Transition/Transition.tscn" id="1_oxcw8"]
+[ext_resource type="Script" uid="uid://dt4ussdyjl1dd" path="res://addons/kaleido_warp/Transitions/Slide/Slide.cs" id="2_te6it"]
+
+[node name="Slide" unique_id=81335194 instance=ExtResource("1_oxcw8")]
+script = ExtResource("2_te6it")

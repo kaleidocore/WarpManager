@@ -35,39 +35,28 @@ vertical_alignment = 1
 [node name="ColorFadeButton" type="Button" parent="UI" unique_id=849855513]
 unique_name_in_owner = true
 offset_left = 144.0
-offset_top = 519.0
+offset_top = 442.0
 offset_right = 574.0
-offset_bottom = 596.0
+offset_bottom = 519.0
 theme_override_font_sizes/font_size = 50
 text = "ColorFade"
 
-[node name="DissolveButton" type="Button" parent="UI" unique_id=692852608]
+[node name="SlideButton" type="Button" parent="UI" unique_id=1911637979]
 unique_name_in_owner = true
-offset_left = 142.0
-offset_top = 790.0
-offset_right = 572.0
-offset_bottom = 867.0
+offset_left = 144.0
+offset_top = 532.0
+offset_right = 574.0
+offset_bottom = 609.0
 theme_override_font_sizes/font_size = 50
-text = "Dissolve
+text = "Slide
 "
-
-[node name="DissolveOptionButton" type="OptionButton" parent="UI" unique_id=1871078434]
-unique_name_in_owner = true
-offset_left = 586.0
-offset_top = 792.0
-offset_right = 1168.0
-offset_bottom = 868.50006
-theme_override_font_sizes/font_size = 50
-alignment = 1
-clip_text = true
-expand_icon = true
 
 [node name="VoronoiButton" type="Button" parent="UI" unique_id=1676621940]
 unique_name_in_owner = true
-offset_left = 142.0
-offset_top = 609.0
-offset_right = 572.0
-offset_bottom = 686.0
+offset_left = 145.0
+offset_top = 628.0
+offset_right = 575.0
+offset_bottom = 705.0
 theme_override_font_sizes/font_size = 50
 text = "Voronoi
 
@@ -75,14 +64,35 @@ text = "Voronoi
 
 [node name="PixellateButton" type="Button" parent="UI" unique_id=1952122545]
 unique_name_in_owner = true
-offset_left = 142.0
-offset_top = 702.0
-offset_right = 572.0
-offset_bottom = 779.0
+offset_left = 145.0
+offset_top = 721.0
+offset_right = 575.0
+offset_bottom = 798.0
 theme_override_font_sizes/font_size = 50
 text = "Pixellate
 
 "
+
+[node name="DissolveButton" type="Button" parent="UI" unique_id=692852608]
+unique_name_in_owner = true
+offset_left = 145.0
+offset_top = 809.0
+offset_right = 575.0
+offset_bottom = 886.0
+theme_override_font_sizes/font_size = 50
+text = "Dissolve
+"
+
+[node name="DissolveOptionButton" type="OptionButton" parent="UI" unique_id=1871078434]
+unique_name_in_owner = true
+offset_left = 589.0
+offset_top = 811.0
+offset_right = 1171.0
+offset_bottom = 887.50006
+theme_override_font_sizes/font_size = 50
+alignment = 1
+clip_text = true
+expand_icon = true
 
 [node name="LoaderButton" type="Button" parent="UI" unique_id=689130947]
 unique_name_in_owner = true

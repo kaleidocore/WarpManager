@@ -1,0 +1,15 @@
+A powerful, yet easy, scene transition manager - built in C#. 
+
+Includes a good variety of shader based transition styles and animations, such as:
+ 
+ - ColorFade
+ - Slide
+ - Pixellate
+ - Voronoi
+ - Dissolve
+ 
+You can seamlessly mix and match between all styles for entry/exit transitions. 
+Each style is further configurable via a fluent API for easy one-liner transitions.
+Clean, reusable structure - User extensible.
+Fully documented.
+Examples and previews available in the repo.

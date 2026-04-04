@@ -23,16 +23,17 @@ public partial class Scene1 : Node2D
 
 	// UI buttons
 	Button ColorFadeButton => GetNode<Button>("%ColorFadeButton");
-	Button DissolveButton => GetNode<Button>("%DissolveButton");
-	OptionButton DissolveOptionButton => GetNode<OptionButton>("%DissolveOptionButton");
+	Button SlideButton => GetNode<Button>("%SlideButton");
 	Button VoronoiButton => GetNode<Button>("%VoronoiButton");
 	Button PixellateButton => GetNode<Button>("%PixellateButton");
+	Button DissolveButton => GetNode<Button>("%DissolveButton");
+	OptionButton DissolveOptionButton => GetNode<OptionButton>("%DissolveOptionButton");
 	Button LoaderButton => GetNode<Button>("%LoaderButton");
 	ColorPickerButton ColorPicker => GetNode<ColorPickerButton>("%ColorPicker");
 	CheckButton UseImageButton => GetNode<CheckButton>("%UseImage");
 
 	// UI helpers
-	Texture2D OverlayImage => UseImage ? GetNode<Sprite2D>("%OverlayImage").Texture : Transition.TransparentPixel;
+	Texture2D? OverlayImage => UseImage ? GetNode<Sprite2D>("%OverlayImage").Texture : null;
 	Texture2D[] DissolveTextures { get; set; } = [];
 	Texture2D SelectedDissolveTexture => DissolveTextures[DissolvePatternIndex];
 
@@ -52,6 +53,7 @@ public partial class Scene1 : Node2D
 
 		// Transition with (mostly) default settings
 		ColorFadeButton.Pressed += () => WarpManager.Instance.WarpToPacked(TargetScene, ColorFade.Cover().Color(OverlayColor).Image(OverlayImage), ColorFade.Uncover().Color(OverlayColor).Image(OverlayImage));
+		SlideButton.Pressed += () => WarpManager.Instance.WarpToPacked(TargetScene, Slide.Cover().Color(OverlayColor).Image(OverlayImage), Slide.Uncover().Color(OverlayColor).Image(OverlayImage));
 		VoronoiButton.Pressed += () => WarpManager.Instance.WarpToPacked(TargetScene, Voronoi.Cover().Color(OverlayColor).Image(OverlayImage), Voronoi.Uncover().Color(OverlayColor).Image(OverlayImage));
 		PixellateButton.Pressed += () => WarpManager.Instance.WarpToPacked(TargetScene, Pixellate.Cover().Color(OverlayColor).Image(OverlayImage), Pixellate.Uncover().Color(OverlayColor).Image(OverlayImage));
 		DissolveButton.Pressed += () => WarpManager.Instance.WarpToPacked(TargetScene, Dissolve.Cover().Color(OverlayColor).Image(OverlayImage).Pattern(SelectedDissolveTexture), Dissolve.Uncover().Color(OverlayColor).Image(OverlayImage).Pattern(SelectedDissolveTexture));

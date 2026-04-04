@@ -1,6 +1,7 @@
 using Godot;
 
 namespace KaleidoWarp;
+#nullable enable
 
 /// <summary>
 /// Represents a color fade transition that gradually covers or uncovers the screen with a color and/or image.
@@ -16,12 +17,7 @@ public partial class ColorFade : Transition, ITransitionFactory<ColorFade>
 	public override void _Ready()
 	{
 		base._Ready();
-
-		var shader = LoadLocal<Shader>(ShaderPath);
-		Material = new ShaderMaterial
-		{
-			Shader = shader
-		};
+		LoadShader(ShaderPath);
 	}
 
 	public override void _Process(double delta)

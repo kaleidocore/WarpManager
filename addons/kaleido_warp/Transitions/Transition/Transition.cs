@@ -4,14 +4,6 @@ using Godot;
 namespace KaleidoWarp;
 #nullable enable
 
-public enum ImageFit
-{
-	None,
-	Contain,
-	Cover,
-	Stretch
-}
-
 /// <summary>
 /// The base class for all transitions. Provides common properties and functionality for managing transition progress, duration, and appearance. Specific transition types can inherit from this class and implement their own visual effects based on the Progress property.
 /// </summary>
@@ -110,6 +102,19 @@ public abstract partial class Transition : ColorRect
 	{
 		var path = BasePath.PathJoin(subPath);
 		return GD.Load<T>(path) ?? throw new Exception($"Failed to load resource at {path}");
+	}
+
+	/// <summary>
+	/// Loads a shader from the specified local file path and assigns it to the material.
+	/// </summary>
+	/// <param name="shaderPath">The local file sub path to the shader resource to load. Cannot be null or empty.</param>
+	protected void LoadShader(string shaderPath)
+	{
+		var shader = LoadLocal<Shader>(shaderPath);
+		Material = new ShaderMaterial
+		{
+			Shader = shader
+		};
 	}
 
 	/// <summary>

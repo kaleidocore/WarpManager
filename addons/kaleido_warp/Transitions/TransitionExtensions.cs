@@ -2,6 +2,7 @@ using System;
 using Godot;
 
 namespace KaleidoWarp;
+#nullable enable
 
 /// <summary>
 /// Fluent transition API for the <see cref="Transition"/> class and its derivatives. These extension methods allow for chaining configuration calls to set properties such as color, texture, easing, and shader parameters in a more concise and readable manner when creating transition instances.
@@ -54,7 +55,7 @@ public static class TransitionExtensions
 	/// <param name="transition">The transition instance to which the image will be applied.</param>
 	/// <param name="image">The image to apply to the transition.</param>
 	/// <returns>The modified transition instance with the updated image.</returns>
-	public static T Image<T>(this T transition, Texture2D image, ImageFit fit = ImageFit.None)
+	public static T Image<T>(this T transition, Texture2D? image, ImageFit fit = ImageFit.None)
 		where T : Transition
 	{
 		transition.ImageTexture = image;
@@ -63,7 +64,7 @@ public static class TransitionExtensions
 	}
 
 	/// <summary>
-	/// Reverses the direction of the specified transition by toggling its Reverse property.
+	/// Reverses the direction of the transition by toggling its Reverse property.
 	/// </summary>
 	/// <typeparam name="T">The type of the transition. Must inherit from the Transition class.</typeparam>
 	/// <param name="transition">The transition instance whose direction will be reversed.</param>
@@ -76,7 +77,7 @@ public static class TransitionExtensions
 	}
 
 	/// <summary>
-	/// Sets the easing function for the specified transition and returns the updated transition instance.
+	/// Sets the easing function for the transition and returns the updated transition instance.
 	/// </summary>
 	/// <typeparam name="T">The type of the transition. Must inherit from the Transition class.</typeparam>
 	/// <param name="transition">The transition instance to which the easing function will be applied.</param>
@@ -90,7 +91,7 @@ public static class TransitionExtensions
 	}
 
 	/// <summary>
-	/// Sets the curve type for the specified transition instance and returns the updated instance.
+	/// Sets the curve type for the transition and returns the updated instance.
 	/// </summary>
 	/// <typeparam name="T">The type of the transition. Must inherit from the Transition class.</typeparam>
 	/// <param name="transition">The transition instance to update. Cannot be null.</param>
@@ -100,6 +101,44 @@ public static class TransitionExtensions
 		where T : Transition
 	{
 		transition.Curve = curve;
+		return transition;
+	}
+
+	/// <summary>
+	/// Sets the sticky behavior for the slide transition, which determines if the overlay image should remain fixed in place during the transition animation, creating a "sticky" effect where the image appears to be glued to the screen rather than moving with the slide.
+	/// </summary>
+	/// <typeparam name="T">The type of slide transition. Must inherit from Slide.</typeparam>
+	/// <param name="transition">The slide transition to configure.</param>
+	/// <param name="sticky">A value indicating whether the transition should be sticky.</param>
+	/// <returns>The slide transition with the updated sticky setting.</returns>
+	public static T Sticky<T>(this T transition, bool sticky)
+		where T : Slide
+	{
+		transition.Sticky = sticky;
+		return transition;
+	}
+
+	/// <summary>
+	/// Enables sticky behavior for the slide transition, creating a "sticky" effect where the image appears to be glued to the screen rather than moving with the slide.
+	/// </summary>
+	/// <typeparam name="T">The type of slide transition. Must inherit from Slide.</typeparam>
+	/// <param name="transition">The slide transition to configure.</param>
+	/// <returns>The slide transition with the updated sticky setting.</returns>
+	public static T Sticky<T>(this T transition)
+		where T : Slide
+		=> Sticky(transition, true);
+
+	/// <summary>
+	/// Sets the direction of the slide transition.
+	/// </summary>
+	/// <typeparam name="T">The type of slide to configure. Must inherit from Slide.</typeparam>
+	/// <param name="transition">The slide transition to configure. Cannot be null.</param>
+	/// <param name="direction">The direction to apply to the slide transition.</param>
+	/// <returns>The slide transition with the specified direction applied.</returns>
+	public static T Direction<T>(this T transition, Direction direction)
+		where T : Slide
+	{
+		transition.Direction = direction;
 		return transition;
 	}
 
