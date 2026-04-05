@@ -55,12 +55,13 @@ public void WarpToNode(Node sceneNode, Transition? transitionOut, Transition? tr
 
 ## Transitions
 
-The addon comes with 4 built-in, shader based transition styles, each individually configurable:
+The addon comes with 5 built-in, shader based transition styles, each individually configurable:
 
 | Transition class | Description |
 |------------|-------------|
-| `(Transition)` | Abstract base class for transitions |
+| (`Transition`) | Abstract base class for transitions |
 | `ColorFade` | A basic screen fade |
+| `Slide` | Slides the screen in or out towards one of the screen edges |
 | `Voronoi` | A randomized bubbly pattern that sweeps across the screen at a given angle |
 | `Pixellation` | A pixellating effect reminiscent of the classic Super Mario pixel fade |
 | `Dissolve` | Uses a grayscale pattern texture to define when and where each screen pixel is overlaid and blended |
@@ -81,7 +82,7 @@ public static T Uncover(float duration);
 ```
 
 The factories are primarily for convencience and the main difference between `Cover()` and `Uncover()` is that the latter initializes the transition to play in reverse.
-You can mix and match transition styles for outro/intro however you like - as long as both of them have the same color and image they should overlap seamlessly.
+*You can mix and match transition styles* for outro/intro however you like - as long as both of them have the same color and image they should overlap seamlessly.
 
 ## Transition common base API
 
@@ -119,6 +120,26 @@ ColorFade.Cover(3f).Image("res://my_overlay.png");
 
 // Fade from a texture, using red as background for transparent areas
 ColorFade.Uncover(3f).Color(Colors.Red).Image("res://my_overlay.png");
+```
+
+## Slide transition
+
+This transition slides the scene in a given direction.
+
+The `Slide` transition adds the following properties:
+```csharp
+transition
+    .Direction(Direction.Right)    // The direction of the slide
+    .Sticky(true);                 // Whether the overlay also slides or stays fixed, i.e. "glued to the screen".
+```
+
+Examples:
+```csharp
+// Slide the screen out at the bottom, revealing an image on a green background
+Slide.Cover(1f).Color(Colors.Green).Image("res://my_overlay.png").Direction(Direction.Down);
+
+// Slide the new screen in from the top
+ColorFade.Uncover(1f).Color(Colors.Green).Image("res://my_overlay.png").Direction(Direction.Top);
 ```
 
 ## Voronoi transition
