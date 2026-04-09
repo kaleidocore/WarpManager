@@ -14,8 +14,7 @@ internal class PatternGenerator
 		var img = Image.CreateEmpty(size, size, false, Image.Format.L8);
 
 		for (int x = 0; x < size; x++)
-			for (int y = 0; y < size; y++)
-				img.SetPixel(x, y, new Color(x / 255f, 0, 0));
+			img.FillRect(new Rect2I(x, 0, 1, size), new Color(x / 255f, 0, 0));
 
 		return img;
 	}
@@ -26,64 +25,79 @@ internal class PatternGenerator
 		var img = Image.CreateEmpty(size, size, false, Image.Format.L8);
 
 		for (int y = 0; y < size; y++)
-			for (int x = 0; x < size; x++)
-				img.SetPixel(x, y, new Color(y / 255f, 0, 0));
+			img.FillRect(new Rect2I(0, y, size, 1), new Color(y / 255f, 0, 0));
 
 		return img;
 	}
 
 	public static Image CurtainsH()
 	{
-		const int size = 512;
+		const int size = 256;
 		var img = Image.CreateEmpty(size, size, false, Image.Format.L8);
 
+		var col = 0;
 		for (int x = 0; x < size / 2; x++)
-			for (int y = 0; y < size; y++)
-				img.SetPixel(x, y, new Color(x / (size / 2f - 1f), 0, 0));
+		{
+			img.FillRect(new Rect2I(x, 0, 1, size), new Color(col / 255f, 0, 0));
+			col += 2;
+		}
 
 		for (int x = size / 2; x < size; x++)
-			for (int y = 0; y < size; y++)
-				img.SetPixel(x, y, new Color((size - 1 - x) / (size / 2f - 1f), 0, 0));
+		{
+			img.FillRect(new Rect2I(x, 0, 1, size), new Color((size - 1 - x) / (size / 2f - 1f), 0, 0));
+			col -= 2;
+		}
 
 		return img;
 	}
 
 	public static Image CurtainsV()
 	{
-		const int size = 512;
+		const int size = 256;
 		var img = Image.CreateEmpty(size, size, false, Image.Format.L8);
 
+		var col = 0;
 		for (int y = 0; y < size / 2; y++)
-			for (int x = 0; x < size; x++)
-				img.SetPixel(x, y, new Color(y / (size / 2f - 1f), 0, 0));
+		{
+			img.FillRect(new Rect2I(0, y, size, 1), new Color(col / 255f, 0, 0));
+			col += 2;
+		}
 
 		for (int y = size / 2; y < size; y++)
-			for (int x = 0; x < size; x++)
-				img.SetPixel(x, y, new Color((size - 1 - y) / (size / 2f - 1f), 0, 0));
+		{
+			img.FillRect(new Rect2I(0, y, size, 1), new Color((size - 1 - y) / (size / 2f - 1f), 0, 0));
+			col -= 2;
+		}
 
 		return img;
 	}
 
-	public static Image BlindsH()
+	public static Image BlindsH(int count = 4)
 	{
-		const int size = 1024;
+		const int size = 256;
 		var img = Image.CreateEmpty(size, size, false, Image.Format.L8);
 
+		var val = 0;
 		for (int x = 0; x < size; x++)
-			for (int y = 0; y < size; y++)
-				img.SetPixel(x, y, new Color((x % 256) / 255f, 0, 0));
+		{
+			img.FillRect(new Rect2I(x, 0, 1, size), new Color((val % 256) / 255f, 0, 0));
+			val += count;
+		}
 
 		return img;
 	}
 
-	public static Image BlindsV()
+	public static Image BlindsV(int count = 4)
 	{
-		const int size = 1024;
+		const int size = 256;
 		var img = Image.CreateEmpty(size, size, false, Image.Format.L8);
 
+		var val = 0;
 		for (int y = 0; y < size; y++)
-			for (int x = 0; x < size; x++)
-				img.SetPixel(x, y, new Color((y % 256) / 255f, 0, 0));
+		{
+			img.FillRect(new Rect2I(0, y, size, 1), new Color((val % 256) / 255f, 0, 0));
+			val += count;
+		}
 
 		return img;
 	}
@@ -128,11 +142,11 @@ internal class PatternGenerator
 		return img;
 	}
 
-	public static Image Clock()
+	public static Image Clock(float startAngle = 0f, int count = 1)
 	{
 		const int size = 256;
 		var img = Image.CreateEmpty(size, size, false, Image.Format.L8);
-
+		float offset = -startAngle * Mathf.Pi / 180f;
 		for (int y = 0; y < size; y++)
 		{
 			float dy = y / (size - 1f) - 0.5f;
@@ -140,12 +154,12 @@ internal class PatternGenerator
 			{
 				float dx = x / (size - 1f) - 0.5f;
 				float angle = Mathf.Atan2(dy, dx);
-				float value = (angle + Mathf.Pi / 2f) / (Mathf.Pi * 2f);
-				if (value < 0f) value += 1f;
+				float value = (angle + Mathf.Pi / 2f + offset) / (Mathf.Pi * 2f);
+				value -= Mathf.Floor(value);
+				value = (value * count) % 1f;
 				img.SetPixel(x, y, new Color(value, 0, 0));
 			}
 		}
-
 		return img;
 	}
 
@@ -176,11 +190,7 @@ internal class PatternGenerator
 				float value = values[by * pixelsX + bx];
 				var color = new Color(value, 0, 0);
 
-				for (int py = 0; py < pixelSize; py++)
-				{
-					for (int px = 0; px < pixelSize; px++)
-						img.SetPixel((bx * pixelSize) + px, (by * pixelSize) + py, color);
-				}
+				img.FillRect(new Rect2I(bx * pixelSize, by * pixelSize, pixelSize, pixelSize), color);
 			}
 		}
 

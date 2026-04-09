@@ -30,6 +30,7 @@ public class DefaultPatterns
 	public Texture2D Clock => Tex("clock");
 	public Texture2D CurtainsH => Tex("curtains_h");
 	public Texture2D CurtainsV => Tex("curtains_v");
+	public Texture2D Fan => Tex("fan");
 	public Texture2D Liquid => Tex("liquid");
 	public Texture2D PaintBrushH => Tex("paint_brush_h");
 	public Texture2D PaintBrushV => Tex("paint_brush_v");
@@ -42,6 +43,7 @@ public class DefaultPatterns
 	public Texture2D Squares => Tex("squares");
 	public Texture2D Swirl => Tex("swirl");
 	public Texture2D TileReveal => Tex("tile_reveal");
+	public Texture2D Windmill => Tex("windmill");
 	public Texture2D WipeH => Tex("wipe_h");
 	public Texture2D WipeV => Tex("wipe_v");
 }
