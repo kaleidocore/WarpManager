@@ -1,3 +1,5 @@
+// Source: http://www.github.com/kaleidocore/KaleidoWarp
+
 #if TOOLS
 using Godot;
 

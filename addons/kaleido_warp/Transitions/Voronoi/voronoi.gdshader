@@ -1,9 +1,10 @@
+// Source: http://www.github.com/kaleidocore/KaleidoWarp
 shader_type canvas_item;
 
 uniform float progress : hint_range(0, 1) = 0.0;
-uniform float angle : hint_range(0, 6.2832) = 0.0;
 uniform sampler2D image : hint_default_transparent;
 uniform int image_fit = 3; // 0=None, 1=Contain, 2=Cover, 3=Stretch
+uniform float angle : hint_range(0, 6.2832) = 0.0;
 
 vec4 sample_image(vec2 uv, vec2 screen_pixel_size) {
     vec2 screen_size = 1.0 / screen_pixel_size;

@@ -1,3 +1,5 @@
+// Source: http://www.github.com/kaleidocore/KaleidoWarp
+
 using System;
 using Godot;
 
@@ -40,10 +42,10 @@ public partial class Dissolve : Transition, ITransitionFactory<Dissolve>
 	public bool Invert { get; set; }
 
 	/// <summary>
-	/// The feathering amount for the dissolve effect, controlling the softness of the transition edges.
+	/// The feathering amount (0.0 - 1.0) for the dissolve effect, controlling the softness of the transition edges.
 	/// </summary>
 	[Export]
-	public float Feather { get; set; } = .01f;
+	public float Feather { get; set; } = 0f;
 
 	/// <summary>
 	/// A function that selects the dissolve texture from the available patterns.
@@ -86,7 +88,7 @@ public partial class Dissolve : Transition, ITransitionFactory<Dissolve>
 		{
 			Duration = duration,
 			Reverse = false,
-			Curve = Tween.TransitionType.Linear,
+			Curve = Tween.TransitionType.Sine,
 		};
 	}
 
@@ -102,7 +104,7 @@ public partial class Dissolve : Transition, ITransitionFactory<Dissolve>
 			Duration = duration,
 			Invert = true,
 			Reverse = true,
-			Curve = Tween.TransitionType.Linear,
+			Curve = Tween.TransitionType.Sine,
 		};
 	}
 

@@ -1,4 +1,6 @@
-﻿namespace KaleidoWarp;
+﻿// Source: http://www.github.com/kaleidocore/KaleidoWarp
+
+namespace KaleidoWarp;
 
 /// <summary>
 /// A convenience interface for transition classes to provide static factory methods for creating cover and uncover transitions. This allows for a consistent API across different transition types, enabling users to easily create transitions with default settings and further customize them as needed.

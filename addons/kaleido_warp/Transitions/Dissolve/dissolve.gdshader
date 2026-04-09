@@ -1,13 +1,14 @@
+// Source: http://www.github.com/kaleidocore/KaleidoWarp
 shader_type canvas_item;
 
 uniform float progress : hint_range(0, 1) = 0.0;
 uniform sampler2D image : hint_default_transparent;
 uniform int image_fit = 0; // 0=None, 1=Contain, 2=Cover, 3=Stretch
-uniform sampler2D dissolve_texture : hint_default_transparent;
+uniform sampler2D dissolve_texture : hint_default_transparent, filter_linear;
 uniform bool flip_x = false;
 uniform bool flip_y = false;
 uniform bool invert = false;
-uniform float feather : hint_range(0.0, 0.25) = 0.1f;
+uniform float feather : hint_range(0.0, 1.0) = 0.0;
 
 vec4 sample_image(vec2 uv, vec2 screen_pixel_size) {
     vec2 screen_size = 1.0 / screen_pixel_size;
@@ -33,7 +34,9 @@ void fragment() {
     if (flip_x) uv.x = 1.0 - uv.x;
     if (flip_y) uv.y = 1.0 - uv.y;
     
-    float sample = texture(dissolve_texture, uv).r;
+	float sample = texture(dissolve_texture, uv).r;
+	sample = min(sample, 1.0 - 1e-6);
+	
 	if(invert) sample = 1.0 - sample;
 	float td = mix(-feather, 1.0 + feather, progress);
 	float alpha = smoothstep(td - feather, td + feather, sample);

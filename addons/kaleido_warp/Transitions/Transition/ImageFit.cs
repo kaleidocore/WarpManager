@@ -1,4 +1,6 @@
-﻿namespace KaleidoWarp;
+﻿// Source: http://www.github.com/kaleidocore/KaleidoWarp
+
+namespace KaleidoWarp;
 
 /// <summary>
 /// Controls how the transition image is fitted to the screen during the transition.

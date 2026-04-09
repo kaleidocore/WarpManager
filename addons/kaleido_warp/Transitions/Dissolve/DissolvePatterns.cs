@@ -1,3 +1,5 @@
+// Source: http://www.github.com/kaleidocore/KaleidoWarp
+
 using Godot;
 
 namespace KaleidoWarp;
@@ -22,8 +24,9 @@ public class DissolvePatterns
 	}
 
 	public Texture2D Circle => Tex("circle");
-	public Texture2D Conical => Tex("conical");
-	public Texture2D Curtains => Tex("curtains");
+	public Texture2D Clock => Tex("clock");
+	public Texture2D CurtainsH => Tex("curtains_h");
+	public Texture2D CurtainsV => Tex("curtains_v");
 	public Texture2D NoiseBlur => Tex("noise_blur");
 	public Texture2D NoiseCell => Tex("noise_cell");
 	public Texture2D NoiseNormal => Tex("noise_normal");

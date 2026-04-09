@@ -1,9 +1,10 @@
+// Source: http://www.github.com/kaleidocore/KaleidoWarp
 shader_type canvas_item;
 
 uniform float progress : hint_range(0.0, 1.0) = 0.0;
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest;
 uniform sampler2D image : hint_default_transparent;
 uniform int image_fit = 0; // 0=None, 1=Contain, 2=Cover, 3=Stretch
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest;
 uniform float amount : hint_range(10.0, 500.0) = 100.0;
 uniform vec2 origin = vec2(0.5, 0.5); // center by default
 

@@ -1,9 +1,10 @@
+// Source: http://www.github.com/kaleidocore/KaleidoWarp
 shader_type canvas_item;
 
 uniform float progress : hint_range(0.0, 1.0) = 0.0;
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture;
 uniform sampler2D image : hint_default_transparent;
 uniform int image_fit = 0; // 0=None, 1=Contain, 2=Cover, 3=Stretch
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture;
 uniform int direction = 0; // 0=Left, 1=Right, 2=Up, 3=Down
 uniform bool sticky = false; // If the overlay (image) stays fixed
 
