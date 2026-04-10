@@ -32,12 +32,7 @@ public class DefaultPatterns
 	public Texture2D CurtainsV => Tex("curtains_v");
 	public Texture2D Fan => Tex("fan");
 	public Texture2D Liquid => Tex("liquid");
-	public Texture2D PaintBrushH => Tex("paint_brush_h");
-	public Texture2D PaintBrushV => Tex("paint_brush_v");
-	public Texture2D PixelNoise1 => Tex("pixel_noise_1");
-	public Texture2D PixelNoise2 => Tex("pixel_noise_2");
-	public Texture2D PixelNoise3 => Tex("pixel_noise_3");
-	public Texture2D Scribbles => Tex("scribbles");
+	public Texture2D PixelNoise => Tex("pixel_noise");
 	public Texture2D Smoke => Tex("smoke");
 	public Texture2D Square => Tex("square");
 	public Texture2D Squares => Tex("squares");

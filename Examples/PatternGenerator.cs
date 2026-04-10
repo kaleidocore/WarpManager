@@ -163,6 +163,41 @@ internal class PatternGenerator
 		return img;
 	}
 
+	public static Image Swirl(int width, int height, float expansion)
+	{
+		var img = Image.CreateEmpty(width, height, false, Image.Format.L8);
+
+		float halfW = (width - 1f) / 2f;
+		float halfH = (height - 1f) / 2f;
+
+		// Uniform scaling (avoid stretching)
+		float scale = Mathf.Min(width, height) - 1f;
+
+		for (int y = 0; y < height; y++)
+		{
+			float dy = (y - halfH) / scale;
+
+			for (int x = 0; x < width; x++)
+			{
+				float dx = (x - halfW) / scale;
+
+				float r = Mathf.Sqrt(dx * dx + dy * dy);
+				float angle = Mathf.Atan2(dy, dx); // -PI → PI
+
+				// Spiral phase
+				float phase = angle + expansion * r;
+
+				// Normalize to 0–1 repeating pattern
+				float value = phase / (2f * Mathf.Pi);
+				value = value - Mathf.Floor(value); // fract
+
+				img.SetPixel(x, y, new Color(value, 0, 0));
+			}
+		}
+
+		return img;
+	}
+
 	public static Image PixelNoise(int width, int height, int pixelSize)
 	{
 		int pixelsX = width / pixelSize;
