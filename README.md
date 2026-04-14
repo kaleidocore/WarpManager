@@ -141,11 +141,11 @@ transition
 
 Examples:
 ```csharp
-// Slide the screen out at the bottom, revealing an image on a green background
+// Slide the screen out at the bottom, "dragging in" an image on a green background from the top
 Slide.Cover(1f).Color(Colors.Green).Image("res://my_overlay.png").Direction(Direction.Bottom);
 
-// Slide the new screen in from the top
-ColorFade.Uncover(1f).Color(Colors.Green).Image("res://my_overlay.png").Direction(Direction.Top);
+// Slide the new screen in from the top, "above" the current overlay image
+Slide.Uncover(1f).Color(Colors.Green).Image("res://my_overlay.png").Direction(Direction.Top).Sticky();
 ```
 
 ## Voronoi transition
