@@ -164,7 +164,7 @@ Examples:
 Voronoi.Cover(2f).Color(Colors.Blue).Angle(45);
 
 // An image sweep, from left to right but for an entry transition.
-ColorFade.Uncover(2f).Image("res://my_overlay.png", ImageFit.Stretch).Angle(180);
+Voronoi.Uncover(2f).Image("res://my_overlay.png", ImageFit.Stretch).Angle(180);
 ```
 
 ## Pixellate transition
