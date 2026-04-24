@@ -58,7 +58,7 @@ public void WarpToNode(Node sceneNode, Transition? transitionOut, Transition? tr
 
 ## Transitions
 
-The addon comes with 5 built-in, shader based transition styles, each individually configurable:
+The addon (currently) comes with the following built-in, shader based transition styles, each further and individually configurable:
 
 | Transition class | Description |
 |------------|-------------|
@@ -69,11 +69,14 @@ The addon comes with 5 built-in, shader based transition styles, each individual
 | `Pixellation` | A pixellating effect reminiscent of the classic Super Mario pixel fade |
 | `Dissolve` | Uses a grayscale pattern texture to define when and where each screen pixel is overlaid and blended |
 
-*You can mix and match transition styles* for outro/intro however you like - as long as both of them have the same base color and image they should overlap seamlessly.
+I intend to keep adding new transition styles over time, so be sure to check back for updates.
+
+> ***You can mix and match transition styles*** for outro/intro however you like - as long as both of them have the same base color and image they should overlap seamlessly.
+
 Should this somehow not cover your needs you are free to implement your own custom transitions inherited from `Transition` (`Transition.tscn`), which handles most of the groundwork. And don't forget to share them here!
 
 
-## Configuring Transitions 🎭
+## Defining Transitions 🎭
 
 All transitions implement the following two static factory methods:
 
@@ -85,7 +88,7 @@ public static T Cover(float duration);
 public static T Uncover(float duration);
 ```
 
-The factories are primarily for convencience and the main difference between `Cover()` and `Uncover()` is that the latter initializes the transition to play in reverse.
+These factories are primarily for convencience and the main difference between `Cover()` and `Uncover()` is that the latter initializes the transition to play in reverse.
 
 ## Transition common base API
 
@@ -132,17 +135,17 @@ This transition slides the scene in a given direction, replacing it with the col
 The `Slide` transition adds the following properties:
 ```csharp
 transition
-    .Direction(Direction.Right)    // The direction of the slide
-    .Sticky(true);                 // Whether the overlay also slides or stays fixed, i.e. "glued to the screen".
+    .Direction(Direction.Left)    // The direction of the slide
+    .Sticky(false);               // Whether the overlay also slides or stays fixed, i.e. "glued to the screen".
 ```
 
 Examples:
 ```csharp
-// Slide the screen out at the bottom, revealing an image on a green background
+// Slide the screen out at the bottom, "dragging in" an image on a green background from the top
 Slide.Cover(1f).Color(Colors.Green).Image("res://my_overlay.png").Direction(Direction.Bottom);
 
-// Slide the new screen in from the top
-ColorFade.Uncover(1f).Color(Colors.Green).Image("res://my_overlay.png").Direction(Direction.Top);
+// Slide the new screen in from the top, "above" the current overlay image
+Slide.Uncover(1f).Color(Colors.Green).Image("res://my_overlay.png").Direction(Direction.Top).Sticky();
 ```
 
 ## Voronoi transition
@@ -161,7 +164,7 @@ Examples:
 Voronoi.Cover(2f).Color(Colors.Blue).Angle(45);
 
 // An image sweep, from left to right but for an entry transition.
-ColorFade.Uncover(2f).Image("res://my_overlay.png", ImageFit.Stretch).Angle(180);
+Voronoi.Uncover(2f).Image("res://my_overlay.png", ImageFit.Stretch).Angle(180);
 ```
 
 ## Pixellate transition
@@ -187,7 +190,7 @@ Pixellate.Uncover(3f).Amount(70f).Origin(new(1,1));
 ## Dissolve transition
 
 Dissolve transitions enable transition animations through the use of dissolve textures. A dissolve texture is just a grayscale image that the shader will sample from and use as a mask when rendering the transition color/image overlay. It starts with the dissolve color threshold set to fully black, gradually increasing it to fully white across the transition duration. At any given point in time, transition overlay pixels will only be drawn if the corresponding pixel in the dissolve texture is below the current threshold. This can effectively create infinite variations of transition animations.
-The addon ships with a bunch of default dissolve textures (some stolen from [http://github.com/sempitern0](https://github.com/sempitern0/warp)) and made accessible via the `DefaultPatterns` class, but you can also provide your own Texture2D or resource path.
+The addon ships with a bunch of default dissolve textures (some stolen from [http://github.com/sempitern0](https://github.com/sempitern0/warp)) and made accessible via the `DefaultPatterns` class, but you can also provide your own Texture2D or resource path. The examples provide [PatternGenerator.cs](https://github.com/kaleidocore/KaleidoWarp/blob/main/Examples/PatternGenerator.cs) as a reference for creating some basic mathematical patterns but you can use any third party imaging software for more advanced patterns.
 
 The `Dissolve` transition adds the following properties:
 ```csharp
@@ -236,6 +239,9 @@ WarpManager.Instance.WarpToFile("res://menu.tscn", ColorFade.Cover(1f), ColorFad
 
 ## Custom loaders
 For smooth loading of heavy scenes you may want to create a custom loader. However, under this framework loader scenes are nothing special; just transition (warp) to your loader scene normally, load your target scene however you want and finally transition (warp) to it when ready. The example project demonstrates this pattern.
+
+## Rawdogging the shaders
+The intended purpose of this addon is to provide a high-level, clean, typesafe C# API to an ever-expanding collection of interchangeable transition shaders, while also relieving you of dummy ColorRects, boiler plate tweens and other repetitive work typically required for scene transitions. If, for some outlandish reason, you'd rather take the hard route you are of course free to slap these shaders onto whatever material you like. The shaders themselves too have been uniformly shaped in order to provide a shared, extensible API with common uniforms such as `progress`, `image`, `image_fit`, etc.
 
 ## Issues
 If you have any issues, suggestions or feature requests, just report them as usual in the [issues](https://github.com/kaleidocore/KaleidoWarp/issues).
