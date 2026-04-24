@@ -30,6 +30,7 @@ public partial class WarpManager : CanvasLayer
 	Node? _targetNode;
 	PackedScene? _targetPacked;
 	string? _targetPath;
+	bool _targetReload;
 	Transition? _exitOld;
 	Transition? _enterNew;
 	bool _cancelled;
@@ -65,10 +66,13 @@ public partial class WarpManager : CanvasLayer
 					GetTree().ChangeSceneToPacked(_targetPacked);
 				else if (_targetNode != null)
 					GetTree().ChangeSceneToNode(_targetNode);
+				else if (_targetReload)
+					GetTree().ReloadCurrentScene();
 
 				_targetPath = null;
 				_targetPacked = null;
 				_targetNode = null;
+				_targetReload = false;
 
 				_exitOld?.Stop();
 				_exitOld?.QueueFree();
@@ -116,6 +120,7 @@ public partial class WarpManager : CanvasLayer
 		_targetPacked = null;
 		_targetNode?.QueueFree();
 		_targetNode = null;
+		_targetReload = false;
 
 		_queue = null;
 		_state = WarpState.Finished;
@@ -142,6 +147,7 @@ public partial class WarpManager : CanvasLayer
 			_targetPacked = null;
 			_targetNode?.QueueFree();
 			_targetNode = null;
+			_targetReload = false;
 		}
 		else if (_state == WarpState.EnterNew)
 		{
@@ -199,6 +205,22 @@ public partial class WarpManager : CanvasLayer
 		{
 			InitWarp(transitionOut, transitionIn);
 			_targetNode = sceneNode;
+			_queue = null;
+		};
+	}
+
+	/// <summary>
+	/// Queues a transition to reload the current scene, optionally applying transition effects when leaving the current scene and entering the new one.
+	/// </summary>
+	/// <remarks>This is a deferred operation, even if no transition effects are specified.</remarks>
+	/// <param name="transitionOut">An optional transition effect to apply when leaving the current scene. If null, no transition is applied.</param>
+	/// <param name="transitionIn">An optional transition effect to apply when entering the new scene. If null, no transition is applied.</param>
+	public void WarpToReload(Transition? transitionOut, Transition? transitionIn)
+	{
+		_queue = () =>
+		{
+			InitWarp(transitionOut, transitionIn);
+			_targetReload = true;
 			_queue = null;
 		};
 	}
