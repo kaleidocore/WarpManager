@@ -19,7 +19,7 @@ b) Download the [latest release](https://github.com/kaleidocore/KaleidoWarp/rele
 
 _or_
 
-c) Clone the repo locally (e.g. via Github Desktop or CLI), then copy the `addons/kaleido_warp` folder into your project's `addons/` folder.
+c) Clone the repo locally (e.g. via Github Desktop or CLI), then copy the `addons/kaleido_warp` folder into your project's `addons/` folder. This could be useful if you need access to unreleased features.
 
 Important:
 > After installation, make sure the KaleidoWarp plugin is enabled in the project settings. You might have to build the Godot project at least once before Godot can activate the plugin.
